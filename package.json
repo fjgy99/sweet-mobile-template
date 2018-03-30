@@ -1,0 +1,23 @@
+{
+  "name": "sweet-mobile-template",
+  "version": "2.0.0",
+  "description": "Sweet Mobile Template",
+  "main": "public/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sweetui/sweet-mobile-template.git"
+  },
+  "keywords": [
+    "Sweet",
+    "Mobile"
+  ],
+  "author": "SweetUI Group",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sweetui/sweet-mobile-template/issues"
+  },
+  "homepage": "https://github.com/sweetui/sweet-mobile-template#readme"
+}
