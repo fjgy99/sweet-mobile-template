@@ -1,23 +1,30 @@
 {
-  "name": "sweet-mobile-template",
-  "version": "2.0.0",
-  "description": "Sweet Mobile Template",
-  "main": "public/index.html",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sweetui/sweet-mobile-template.git"
-  },
-  "keywords": [
-    "Sweet",
-    "Mobile"
-  ],
-  "author": "SweetUI Group",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sweetui/sweet-mobile-template/issues"
-  },
-  "homepage": "https://github.com/sweetui/sweet-mobile-template#readme"
+    "name": "sweet-mobile-template",
+    "version": "2.0.0",
+    "description": "Sweet Mobile Template",
+    "main": "public/index.html",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sweetui/sweet-mobile-template.git"
+    },
+    "keywords": ["Sweet", "Mobile"],
+    "dependencies": {
+        "@sweetui/sweet-mobile": "^2.0.2",
+        "axios": "^0.17.1",
+        "framework7": "^2.1.2",
+        "framework7-vue": "^2.1.2",
+        "vue": "2.5.9",
+        "vue-i18n": "^7.3.3",
+        "vue-router": "^3.0.1",
+        "vuex": "^3.0.1"
+    },
+    "author": "SweetUI Group",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/sweetui/sweet-mobile-template/issues"
+    },
+    "homepage": "https://github.com/sweetui/sweet-mobile-template#readme"
 }
