@@ -1,33 +1,37 @@
-import { sweetStore, SWXHR, SWTOOL } from '@sweetui/sweet-mobile';
+import {sweetStore, SWTOOL, SWXHR} from '@sweetui/sweet-mobile'
+import {proxy} from '@cwd/app.config'
 
 const xhr = function(Vue) {
     const SWXHR_OPTIONS = {
         config: {
             // 配置全局接口前缀
-            baseURL: '', // 配置全局接口延迟
+            // baseURL: '', // 配置全局接口延迟
+            proxy: proxy,
             timeout: 0, // 配置全局接口请求头 ...其他更多配置项可以参考axios文档
-            headers: {}
+            headers: {},
+            // 设置全局接口配置前缀
         },
+        /*eslint-disable*/
         intercept: {
             // 配置全局SWXHR拦截器 -- > 请求前
             request(p) {
-                // console.log('请求前');
-                return p;
+                // console.log('请求前')
+                return p
             }, // 配置全局SWXHR拦截器 -- > 请求后
             response(res) {
-                var result = res.data;
+                let result = res.data
 
                 if (res.status === 200 && result.code !== 'success') {
-                    Vue.prototype.$message(result.message);
+                    // Vue.prototype.$message(result.message)
                 }
 
-                return result;
+                return result
             }
         }
-    };
-    const sweetXhr = new SWXHR(Vue, SWXHR_OPTIONS, sweetStore, SWTOOL);
-    Vue.use(sweetXhr);
-    return sweetXhr;
-};
+    }
+    const sweetXhr = new SWXHR(Vue, SWXHR_OPTIONS, sweetStore, SWTOOL)
+    Vue.use(sweetXhr)
+    return sweetXhr
+}
 
-export default xhr;
+export default xhr

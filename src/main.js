@@ -1,40 +1,62 @@
-import Vue from 'vue';
-import Framework7 from 'framework7/dist/framework7.esm.bundle';
-import Framework7Vue from 'framework7-vue/dist/framework7-vue.esm.bundle';
-import { sweetStore, SWTOOL } from '@sweetui/sweet-mobile';
-import app from '@/modules/demo/app';
-import request from '@/modules/demo_plugin/ajax';
-import Routes from './routes.js';
-import 'framework7/dist/css/framework7.min.css';
-import '@/modules/demo_theme/index.less';
+import Vue from 'vue'
+import '@sweetui/sweet-mobile-sdk/config/utils/responsiveDesign'
+import vueLogger from '@sweetui/sweet-mobile-sdk/config/logger/vue-logger'
 
-Vue.use(Framework7Vue, Framework7);
+import Framework7 from 'framework7/dist/framework7.esm.bundle'
+import Framework7Vue from 'framework7-vue/dist/framework7-vue.esm.bundle'
+import {sweetForm, sweetI18n, sweetStore, sweetTheme, SWTOOL} from '@sweetui/sweet-mobile'
+import 'framework7/dist/css/framework7.min.css'
 
-Vue.use(SWTOOL);
+import app from '@/modules/demo/app'
+import request from '@/modules/demo_plugin/ajax'
+import Routes from './routes.js'
+import '@/modules/demo_theme/index.less'
+// 引入组件
+Vue.use(Framework7Vue, Framework7)
+// 注入axios ajax请求
+Vue.use(SWTOOL)
+// 表单验证sweet-form、sweet-form-item 、sweet-input、sweet-group组件
+Vue.use(sweetForm)
+// 注入log方法
+Vue.use(vueLogger)
+// 换肤方案
+Vue.use(sweetTheme)
 
 // ajax启动
-request(Vue);
+request(Vue)
 
+// 国际化
+sweetI18n(() => {
+    return new Promise((resolve, reject) => {
+        /* 模拟ajax请求 */
+        const onlineDate = {
+            zh: {o: '我来自ajax请求的语言包'},
+            en: {o: 'I come from the language package of the Ajax request'},
+        }
+        setTimeout(() => {
+            resolve(onlineDate)
+        }, 500)
+    })
+}).then(i18n => {
 // 初始化 App
-new Vue({
-    el: '#app',
-    render: c => c('app'),
-    store: sweetStore,
-    // 初始化 Framework7 时需要的参数配置
-    framework7: {
-        routes: Routes,
-        // App 名称
-        name: 'GeelyApp',
-        // App id
-        id: 'com.geely.geelyapp'
-    },
-    // 注册 App 组件
-    components: {
-        app
-    }
-});
-
-// webpack热加载
-if (module.hot) {
-    module.hot.accept();
-}
+    const sweetApp = new Vue({
+        el: '#app',
+        render: c => c('app'),
+        store: sweetStore,
+        // 初始化 Framework7 时需要的参数配置
+        framework7: {
+            routes: Routes,
+            // App 名称
+            name: 'GeelyApp',
+            // App id
+            id: 'com.geely.geelyapp'
+        },
+        // 注册 App 组件
+        components: {
+            app
+        },
+        // 注入i18n
+        i18n,
+    })
+    return sweetApp
+})

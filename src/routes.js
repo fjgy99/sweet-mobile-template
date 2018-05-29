@@ -1,6 +1,9 @@
-import Home from '@/modules/demo/home';
-import About from '@/modules/demo/about';
-import Req from '@/modules/demo/request';
+import Home from '@/modules/demo/home'
+import About from '@/modules/demo/about'
+import Req from '@/modules/demo/request'
+import Theme from '@/modules/demo/theme'
+import Data from '@/modules/demo/data'
+import FormDemo from '@/modules/demo/form'
 
 export default [
     {
@@ -14,6 +17,17 @@ export default [
     {
         path: '/request',
         async: Req
-    }
-];
-
+    },
+    {
+        path: '/theme',
+        async: Theme
+    },
+    {
+        path: '/data',
+        async: Data
+    },
+    {
+        path: '/form',
+        async: FormDemo
+    },
+]
