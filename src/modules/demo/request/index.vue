@@ -22,7 +22,7 @@
         data() {
             return {
                 listData: '',
-                testUrl: '/api/test/assistant/coordinate/convert?key=ff0bcf778c5eeb93bd8b068b6e3f7781&locations=116.481499,39.990475|116.481499,39.990375',
+                testUrl: '/api/test/v3/assistant/coordinate/convert?key=ff0bcf778c5eeb93bd8b068b6e3f7781&locations=116.481499,39.990475|116.481499,39.990375',
             }
         },
         on: {

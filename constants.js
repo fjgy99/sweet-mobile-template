@@ -8,22 +8,12 @@ module.exports = {
      * 设置的 key匹配加载 相应接口前面，匹配到后会自动replace掉key
      * 例: '/api/test':'http://restapi.com' 调用 '/api/test/comm/getUser'
      * 最后匹配生成 'http://restapi.com/comm/getUser'
-     * 例: '/api/demo':'http://www.bai.com' 调用 '/api/demo/comm/getUser'
-     * 最后匹配生成 'http://restapi.com/comm/getUser'
      * 这里 '/api/demo'作为key键 通过匹配然后拼接成接口地址
-     * 注:如果生产环境配置nginx代理，production的值全部设置为空('')即可
+     * 注: 非接口请求，必须/statics/前缀
      */
     proxy: {
-        // 开发环境接口前缀
-        development: {
-            '/api/test': 'http://restapi.amap.com/v3/assistant',
-            '/api/demo': 'http://restapi.amap.com/v3/1',
-        },
-        // 生产环境接口前缀
-        production: {
-            '/api/test': 'http://restapi.amap.com/v3/assistant',
-            '/api/demo': 'http://restapi.amap.com/v3/2',
-        },
+        '/api/test': 'http://restapi.amap.com',
+        '/statics/test': 'http://10.86.96.242:19950',
     },
     /**
      * 根据环境变量(process.env.SWEET_ENV,可用其他的)的值 获取对应的 definePlugin对象，设置环境变量值

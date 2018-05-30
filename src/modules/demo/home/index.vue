@@ -37,6 +37,7 @@
             <div>
                 {{$t('o')}}
             </div>
+            <img src="/statics/test/captcha?v=1527643456560"/>
         </div>
     </f7-page>
 </template>
@@ -52,7 +53,6 @@
             }
         },
         mounted() {
-            this.log(process.env)
         }
     }
 </script>

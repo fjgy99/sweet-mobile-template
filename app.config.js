@@ -8,8 +8,10 @@ const constants = require('./constants')
 module.exports = {
     // 开发服务端口
     appPort: 9009,
-    // 移动端设计稿尺寸，用于配置响应式放缩
+    // 移动端设计稿尺寸，用于配置响应式放缩 默认尺寸750
     designSize: 750,
+    // 生产环境代码是否启用离线缓存 默认 false
+    offlineCaching: true,
     // webpack的差异化配置
     webpack: {
         // 入口
@@ -23,8 +25,8 @@ module.exports = {
         // 扩展rules
         rules: [],
     },
-    // 设置接口对应代理前缀  根据当前环境变量(程序运行时期)取值
-    proxy: constants.proxy[process.env.NODE_ENV],
+    // 设置开发环境接口对应代理前缀
+    proxy: constants.proxy,
     // 是否对npm包里的css进行postcss处理 默认false
     postcssNodeModules: false,
     // 根据环境变量(process.env.SWEET_ENV，执行命令时期)的值 获取对应的 definePlugin对象，设置环境变量值
