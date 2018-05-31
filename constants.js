@@ -9,11 +9,14 @@ module.exports = {
      * 例: '/api/test':'http://restapi.com' 调用 '/api/test/comm/getUser'
      * 最后匹配生成 'http://restapi.com/comm/getUser'
      * 这里 '/api/demo'作为key键 通过匹配然后拼接成接口地址
-     * 注: 非接口请求，必须/statics/前缀
+     * 注: 接口请求，key必须/api/前缀 便于开发服务中间件识别
+     * 注: 非接口请求，key必须是真实路径
+     * 例如: 设置 '/captcha': 'http://10.86.96.242:19950/captcha',   使用 /captcha?v=1527643456560
+     * 结果 'http://10.86.96.242:19950/captcha/?v=1527643456560',
      */
     proxy: {
         '/api/test': 'http://restapi.amap.com',
-        '/statics/test': 'http://10.86.96.242:19950',
+        '/captcha': 'http://10.86.96.242:19950/captcha',
     },
     /**
      * 根据环境变量(process.env.SWEET_ENV,可用其他的)的值 获取对应的 definePlugin对象，设置环境变量值

@@ -6,7 +6,7 @@
     "private": true,
     "entry": {},
     "scripts": {
-        "start": "rimraf dist && npm run dll && cross-env SWEET_ENV=development node node_modules/@sweetui/sweet-mobile-sdk",
+        "start": "rimraf dist && npm run dll && cross-env SWEET_ENV=development NODE_ENV=development node node_modules/@sweetui/sweet-mobile-sdk",
         "dll": "webpack --progress --hide-modules --config node_modules/@sweetui/sweet-mobile-sdk/config/webpack.config.dll.js",
         "build": "webpack --progress --hide-modules --config node_modules/@sweetui/sweet-mobile-sdk/config/webpack.config.prod.js && npm run manifest",
         "manifest": "node node_modules/@sweetui/sweet-mobile-sdk/config/manifest.js",
@@ -16,8 +16,8 @@
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "devDependencies": {
-        "@sweetui/sweet-mobile": "^2.2.9",
-        "@sweetui/sweet-mobile-sdk": "^1.0.9"
+        "@sweetui/sweet-mobile": "^2.3.2",
+        "@sweetui/sweet-mobile-sdk": "^1.1.1"
     },
     "dependencies": {},
     "keywords": [
