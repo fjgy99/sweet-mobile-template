@@ -17,6 +17,8 @@
 </template>
 
 <script>
+    import qs from 'qs'
+
     export default {
         name: 'request',
         data() {
@@ -59,11 +61,13 @@
                  * json文件的开发路径为： src/modules/demo/request/json/list.json
                  * ajax调用的路径则是：src/modules/demo/request/json/list.json
                  */
-                this.SWXHR.GET(this.testUrl)
-                    .then(res => {
-                        this.log(res)
-                        this.listData = res
-                    })
+                this.SWXHR.POST('/api/adpwreset/sendMessageToMobile', qs.stringify({
+                    mobile: 13693927472,
+                    captcha: 'fvqu'
+                })).then(res => {
+                    this.log(res)
+                    this.listData = res
+                })
             }
         },
         mounted() {

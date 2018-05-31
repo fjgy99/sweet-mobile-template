@@ -15,8 +15,9 @@ module.exports = {
      * 结果 'http://10.86.96.242:19950/captcha/?v=1527643456560',
      */
     proxy: {
-        '/api/test': 'http://restapi.amap.com',
+        // '/api/test': 'http://restapi.amap.com',
         '/captcha': 'http://10.86.96.242:19950/captcha',
+        '/api': 'http://10.86.96.242:19950',
     },
     /**
      * 根据环境变量(process.env.SWEET_ENV,可用其他的)的值 获取对应的 definePlugin对象，设置环境变量值
