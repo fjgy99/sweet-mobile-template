@@ -1,4 +1,4 @@
-# sweet-mobile-loader 构建环境文档
+# sweet-mobile-template 构建环境文档
 > 开发环境基于koa2服务
 
 [移动端框架的相关文档(构建、framework7、国际化、换肤等等)](https://github.com/sweetui/sweet-mobile-docs)
