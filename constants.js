@@ -6,19 +6,18 @@ module.exports = {
     /**
      * 设置多个代理接口前缀
      * 设置的 key匹配加载 相应接口前面，匹配到后会自动replace掉key
-     * 例: '/api/test':'http://restapi.com' 调用 '/api/test/comm/getUser'
+     * 例: '/api':'http://restapi.com' 调用 '/api/comm/getUser'
      * 最后匹配生成 'http://restapi.com/comm/getUser'
-     * 这里 '/api/demo'作为key键 通过匹配然后拼接成接口地址
-     * 注: 接口请求，key必须/api/前缀 便于开发服务中间件识别
-     * 注: 非接口请求，key必须是真实路径
-     * 例如: 设置 '/captcha': 'http://10.86.96.242:19950/captcha',   使用 /captcha?v=1527643456560
-     * 结果 'http://10.86.96.242:19950/captcha/?v=1527643456560',
+     * 所有ajax接口配置的proxy前缀只在开发环境起作用，生产环境会自动忽略。接口请求必须设置前缀匹配
+     * 非接口请求设置真实路径作为key
+     * 例: '/captcha': 'http://10.86.96.242:19950', 调用 <img src="/captcha?v=1527643456560"/>
+     * 最后会代理到 'http://10.86.96.242:19950/captcha?v=1527643456560'
      */
     proxy: {
-        // '/api/test': 'http://restapi.amap.com',
-        '/captcha': 'http://10.86.96.242:19950/captcha',
         '/api': 'http://10.86.96.242:19950',
+        '/captcha': 'http://10.86.96.242:19950',
     },
+
     /**
      * 根据环境变量(process.env.SWEET_ENV,可用其他的)的值 获取对应的 definePlugin对象，设置环境变量值
      * process.env.SWEET_ENV 在 package.json 命令上设置  例：cross-env SWEET_ENV=production

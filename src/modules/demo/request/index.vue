@@ -8,11 +8,34 @@
 
         <h3>AJAX 数据列表</h3>
         <div>
-            result:  {{listData}}
+            <img src="/captcha?v=1527643456560"/>
+            <sweet-form :model="formData" :rules="rules" ref="ruleForm">
+                <f7-list inline-labels>
+                    <f7-list-item>
+                        <f7-label>tel</f7-label>
+                        <sweet-form-item prop="mobile" class="sweet-input-form">
+                            <sweet-input v-model="formData.mobile" type="tel" placeholder="请输入电话号码"/>
+                        </sweet-form-item>
+                    </f7-list-item>
+                    <f7-list-item>
+                        <f7-label>验证码</f7-label>
+                        <sweet-form-item prop="captcha" class="sweet-input-form">
+                            <sweet-input v-model="formData.captcha" type="text" placeholder="请输入验证码"/>
+                        </sweet-form-item>
+                    </f7-list-item>
+                    <div class="block">
+                        <f7-button fill @click.prevent="submitForm">获取验证码</f7-button>
+
+                    </div>
+                </f7-list>
+                <div class="block">
+                    {{formData}}
+                    <p>
+                        result:  {{data}}
+                    </p>
+                </div>
+            </sweet-form>
         </div>
-        <!--<ul>-->
-        <!--<li v-for="item in listData" :key="item.id">{{item.title}}</li>-->
-        <!--</ul>-->
     </f7-page>
 </template>
 
@@ -23,8 +46,21 @@
         name: 'request',
         data() {
             return {
-                listData: '',
-                testUrl: '/api/test/v3/assistant/coordinate/convert?key=ff0bcf778c5eeb93bd8b068b6e3f7781&locations=116.481499,39.990475|116.481499,39.990375',
+                data: '',
+                formData: {
+                    mobile: '',
+                    captcha: '',
+                },
+                rules: {
+                    mobile: [
+                        {required: true, message: '请输入电话号码', trigger: 'blur'},
+                        {required: true, message: '请输入电话号码', trigger: 'change'}
+                    ],
+                    captcha: [
+                        {required: true, message: '请输入验证码', trigger: 'blur'},
+                        {required: true, message: '请输入验证码', trigger: 'change'}
+                    ],
+                }
             }
         },
         on: {
@@ -32,7 +68,7 @@
                 this.log('page mounted')
             },
             pageInit: function(e, page) {
-                this.log(this.testUrl) // -> 'johndoe'
+                this.log('page init') // -> 'johndoe'
             },
             pageBeforeIn: function(e, page) {
                 this.log('page before in')
@@ -53,25 +89,28 @@
         methods: {
             /**
              * 获取数据
+             *
+             *
+             * 文件获取规则
+             * 例如：
+             * json文件的开发路径为： src/modules/demo/request/json/list.json
+             * ajax调用的路径则是：src/modules/demo/request/json/list.json
              */
-            getData() {
-                /**
-                 * 文件获取规则
-                 * 例如：
-                 * json文件的开发路径为： src/modules/demo/request/json/list.json
-                 * ajax调用的路径则是：src/modules/demo/request/json/list.json
-                 */
-                this.SWXHR.POST('/api/adpwreset/sendMessageToMobile', qs.stringify({
-                    mobile: 13693927472,
-                    captcha: 'fvqu'
-                })).then(res => {
-                    this.log(res)
-                    this.listData = res
+            submitForm() {
+                this.$refs.ruleForm.validate((valid) => {
+                    const app = this.$f7
+                    if (valid) {
+                        this.SWXHR.POST('/api/adpwreset/sendMessageToMobile', qs.stringify(this.formData))
+                            .then(res => {
+                                this.log(res)
+                                this.data = res
+                                app.dialog.alert(res.message)
+                            })
+                    } else {
+                        app.dialog.alert('error submit!!!')
+                    }
                 })
             }
         },
-        mounted() {
-            this.getData()
-        }
     }
 </script>
