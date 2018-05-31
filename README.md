@@ -125,33 +125,24 @@ module.exports = {
 * language 默认语言设置 
 * themeConfig 项目换肤配置
 
-* proxy 设置接口代理 根据 process.env.NODE_ENV 环境变量 取constants.proxy[key]值
+* proxy 设置开发接口代理
 ```js
-/**
-   * 设置多个代理接口前缀
-   * 设置的 key匹配加载 相应接口前面，匹配到后会自动replace掉key
-   * 例: '/api/test':'http://restapi.com' 调用 '/api/test/comm/getUser'
-   * 最后匹配生成 'http://restapi.com/comm/getUser'
-   * 例: '/api/demo':'http://www.bai.com' 调用 '/api/demo/comm/getUser'
-   * 最后匹配生成 'http://restapi.com/comm/getUser'
-   * 这里 '/api/demo'作为key键 通过匹配然后拼接成接口地址
-   * 注:如果生产环境配置nginx代理，production的值全部设置为空('')即可
-   */
-   proxy: {
-       // 开发环境接口前缀
-       development: {
-         '/api/test': 'http://restapi.amap.com/v3/assistant',
-         '/api/demo': 'http://restapi.amap.com/v3/1',
-       },
-       // 生产环境接口前缀
-       production: {
-         '/api/test': 'http://restapi.amap.com/v3/assistant',
-         '/api/demo': 'http://restapi.amap.com/v3/2',
-       },
-     },
+    /**
+     * 设置多个代理接口前缀
+     * 设置的 key匹配加载 相应接口前面，匹配到后会自动replace掉key
+     * 例: '/api':'http://restapi.com' 调用 '/api/comm/getUser'
+     * 最后匹配生成 'http://restapi.com/comm/getUser'
+     * 所有ajax接口配置的proxy前缀只在开发环境起作用，生产环境会自动忽略。接口请求必须设置前缀匹配
+     * 接口代理key必须以 '/api' 开头！！！
+     * 如果是非接口请求设置真实路径作为key(一般很少)
+     * 例: '/captcha': 'http://10.86.96.242:19950', 调用 <img src="/captcha?v=1527643456560"/>
+     * 最后会代理到 'http://10.86.96.242:19950/captcha?v=1527643456560'
+     */
+    proxy: {
+        '/api': 'http://10.86.96.242:19950',
+        '/captcha': 'http://10.86.96.242:19950',
+    },
 ```
-
-默认开发、生产环境都走配置项的代理。如果生产采用nginx代理的话，只需production的值全部设置为空('')即可
 
 * definePlugin 设置环境变量 根据 自定义环境变量process.env.SWEET_ENV 取值,主要是为了不熟不同生产环境需要不同的值这类业务需求。
 ```js

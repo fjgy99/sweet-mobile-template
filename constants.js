@@ -18,7 +18,6 @@ module.exports = {
         '/api': 'http://10.86.96.242:19950',
         '/captcha': 'http://10.86.96.242:19950',
     },
-
     /**
      * 根据环境变量(process.env.SWEET_ENV,可用其他的)的值 获取对应的 definePlugin对象，设置环境变量值
      * process.env.SWEET_ENV 在 package.json 命令上设置  例：cross-env SWEET_ENV=production

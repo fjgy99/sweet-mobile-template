@@ -11,7 +11,7 @@ module.exports = {
     // 移动端设计稿尺寸，用于配置响应式放缩 默认尺寸750
     designSize: 750,
     // 生产环境代码是否启用离线缓存 默认 false
-    offlineCaching: true,
+    offlineCaching: false,
     // webpack的差异化配置
     webpack: {
         // 入口
