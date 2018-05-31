@@ -18,22 +18,24 @@
 
         <div class="home">
             <h1>{{$t('message.welcome')}}</h1>
-            <div>
-                <f7-link href="/about/">{{$t('message.about')}}</f7-link>
+            <div class="home-btn">
+                <f7-button big fill href="/about/">{{$t('message.about')}}</f7-button>
             </div>
-            <div>
-                <f7-link href="/request/">{{$t('message.request')}}</f7-link>
+            <div class="home-btn">
+                <f7-button big fill href="/request/">{{$t('message.request')}}</f7-button>
             </div>
-            <div>
-                <f7-link href="/theme/">{{$t('message.skin')}}</f7-link>
+            <div class="home-btn">
+                <f7-button big fill href="/theme/">{{$t('message.skin')}}</f7-button>
             </div>
-            <div>
-                <f7-link href="/data/">数据处理demo</f7-link>
+            <div class="home-btn">
+                <f7-button big fill href="/data/">数据处理demo</f7-button>
             </div>
-            <div>
-                <f7-link href="/form/">Form表单验证</f7-link>
+            <div class="home-btn">
+                <f7-button big fill href="/form/">Form表单验证</f7-button>
             </div>
-            <a href="javascript:;" @click="setLang">{{$t('message.switchLang')}}</a>
+            <div class="home-btn">
+                <f7-button big fill @click="setLang">{{$t('message.switchLang')}}</f7-button>
+            </div>
             <div>
                 {{$t('o')}}
             </div>
