@@ -1,6 +1,6 @@
 module.exports = {
-  plugins: {
-    'autoprefixer': { browsers: '> 0.1%' },
-    'postcss-pxtorem': { rootValue: 100, propWhiteList: [], replace: true, },
-  },
+    plugins: {
+        'autoprefixer': {browsers: ['iOS >= 7', 'Android >= 4']},
+        'postcss-pxtorem': {rootValue: 100, propWhiteList: [], replace: true,},
+    },
 }
