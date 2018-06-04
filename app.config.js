@@ -8,8 +8,10 @@ const constants = require('./constants')
 module.exports = {
     // 开发服务端口
     appPort: 9009,
-    // 移动端设计稿尺寸，用于配置响应式放缩 默认尺寸750
+    // 移动端设计稿尺寸，用于配置响应式放缩的基数 默认尺寸750
     designSize: 750,
+    // 最优尺寸： 当屏幕宽度大于720的时候，默认显示iphone plus 414尺寸的放缩，主要适配ipad等
+    optimalSize: 414,
     // 生产环境代码是否启用离线缓存 默认 false
     offlineCaching: false,
     // webpack的差异化配置

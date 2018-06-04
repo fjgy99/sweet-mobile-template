@@ -17,7 +17,7 @@
     },
     "devDependencies": {
         "@sweetui/sweet-mobile": "^2.3.5",
-        "@sweetui/sweet-mobile-sdk": "^1.2.0"
+        "@sweetui/sweet-mobile-sdk": "^1.2.1"
     },
     "dependencies": {},
     "keywords": [
