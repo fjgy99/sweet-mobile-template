@@ -5,8 +5,11 @@ import vueLogger from '@sweetui/sweet-mobile-sdk/config/logger/vue-logger'
 
 import Framework7 from 'framework7/dist/framework7.esm.bundle'
 import Framework7Vue from 'framework7-vue/dist/framework7-vue.esm.bundle'
-import {sweetForm, sweetI18n, sweetStore, sweetTheme, SWTOOL} from '@sweetui/sweet-mobile'
+import {sweetI18n, sweetStore, sweetTheme, SWTOOL} from '@sweetui/sweet-mobile'
 import 'framework7/dist/css/framework7.min.css'
+
+import sweetMobileLib from '@sweetui/sweet-mobile-lib'
+import '@sweetui/sweet-mobile-lib/css/index.less'
 
 import app from '@/modules/demo/app'
 import request from '@/modules/demo_plugin/ajax'
@@ -16,8 +19,8 @@ import '@/modules/demo_theme/index.less'
 Vue.use(Framework7Vue, Framework7)
 // 注入axios ajax请求
 Vue.use(SWTOOL)
-// 表单验证sweet-form、sweet-form-item 、sweet-input、sweet-group组件
-Vue.use(sweetForm)
+// sweetMobileLib组件库
+Vue.use(sweetMobileLib)
 // 注入log方法
 Vue.use(vueLogger)
 // 换肤方案
