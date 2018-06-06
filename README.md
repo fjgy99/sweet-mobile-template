@@ -1,17 +1,26 @@
-# sweet-mobile-template 构建环境文档
-> 开发环境基于koa2服务
+# sweet-mobile-template 模版工程
+> 移动端项目工程模版
 
-[移动端框架的相关文档(构建、framework7、国际化、换肤等等)](https://github.com/sweetui/sweet-mobile-docs)
+项目工程是通过 `sweet init`命令生成，这里是对工程详细说明
 
-1、npm install 安装node包
+全局安装sweet-cli命令
+```npm
+npm install @sweetui/sweet-cli -g
+or 
+sudo npm install @sweetui/sweet-cli -g
+```
+npm install 安装node包
 ```npm
  npm install
 ```
-2、npm run git-install 安装git钩子(很重要)
+npm run git-install 安装git钩子(很重要)
 ```npm
  npm run git-install
 ```
-
+npm start 启动项目
+```npm
+npm start
+```
 ### 工程Project
 
 * --- dist  // 打包目录
@@ -42,14 +51,16 @@
 * --- README.md
 * --- vendors-manifest.json // Dll打包的manifest文件，加速打包
 
-项目工程配置基于`@sweetui/sweet-mobile-sdk`、`@sweetui/sweet-mobile`.
 
-* `@sweetui/sweet-mobile-sdk`基础包 &nbsp;基于webpack4的Vue.js 2的工程化配置
-* `@sweetui/sweet-mobile`工具包 方法默认都注入工程
-  * I18n国际化
-  * Theme换肤
-  * SWXHR Http请求
-  * SWTOOL 一些公共方法
+工程依赖以下npm包
+
+* `@sweetui/sweet-mobile` 工具包 方法默认都注入工程
+   * I18n国际化
+   * Theme换肤
+   * SWXHR Http请求
+   * SWTOOL 公共方法
+* `@sweetui/sweet-mobile-sdk` 基础包 &nbsp;基于webpack4的Vue.js 2的工程化配置
+* `@sweetui/sweet-mobile-lib` 组件库包
   
   
   
@@ -65,7 +76,7 @@
     .then(res => {
      ...
   })
-
+  
 /**
   * 正常http请求
   */
@@ -127,8 +138,10 @@ module.exports = {
 
 关于项目的一些配置项
 
-* 根据项目需求对webpack构建进行一些扩展配置
+* webpack 根据项目需求对webpack构建进行一些扩展配置
+
 * language 默认语言设置 
+
 * themeConfig 项目换肤配置
 
 * proxy 设置开发接口代理
@@ -177,27 +190,21 @@ module.exports = {
  * Created by zdliu on 2018/4/3.
  */
 module.exports = {
-/**
-   * 设置多个代理接口前缀
-   * 设置的 key匹配加载 相应接口前面，匹配到后会自动replace掉key
-   * 例: '/api/test':'http://restapi.com' 调用 '/api/test/comm/getUser'
-   * 最后匹配生成 'http://restapi.com/comm/getUser'
-   * 例: '/api/demo':'http://www.bai.com' 调用 '/api/demo/comm/getUser'
-   * 最后匹配生成 'http://restapi.com/comm/getUser'
-   * 这里 '/api/demo'作为key键 通过匹配然后拼接成接口地址
-   */
-  proxy: {
-    // 开发环境接口前缀
-    development: {
-      '/api/test': 'http://restapi.amap.com/v3/assistant',
-      '/api/demo': 'http://restapi.amap.com/v3/1',
+   /**
+    * 设置多个代理接口前缀
+    * 设置的 key匹配加载 相应接口前面，匹配到后会自动replace掉key
+    * 例: '/api':'http://restapi.com' 调用 '/api/comm/getUser'
+    * 最后匹配生成 'http://restapi.com/comm/getUser'
+    * 所有ajax接口配置的proxy前缀只在开发环境起作用，生产环境会自动忽略。接口请求必须设置前缀匹配
+    * 接口代理key必须以 '/api' 开头！！！
+    * 如果是非接口请求设置真实路径作为key(一般很少)
+    * 例: '/captcha': 'http://10.86.96.242:19950', 调用 <img src="/captcha?v=1527643456560"/>
+    * 最后会代理到 'http://10.86.96.242:19950/captcha?v=1527643456560'
+    */
+   proxy: {
+        '/api': 'http://10.86.96.242:19950',
+        '/captcha': 'http://10.86.96.242:19950',
     },
-    // 生产环境接口前缀
-    production: {
-      '/api/test': 'http://restapi.amap.com/v3/assistant',
-      '/api/demo': 'http://restapi.amap.com/v3/2',
-    },
-  },
   /**
      * 根据环境变量(process.env.SWEET_ENV,可用其他的)的值 获取对应的 definePlugin对象，设置环境变量值
      * process.env.SWEET_ENV 在 package.json 命令上设置  例：cross-env SWEET_ENV=production
