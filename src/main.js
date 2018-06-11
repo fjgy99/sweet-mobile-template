@@ -1,3 +1,4 @@
+import '@babel/polyfill'
 import Vue from 'vue'
 // 引入响应式js文件
 import '@sweetui/sweet-mobile-sdk/config/utils/responsiveDesign'
