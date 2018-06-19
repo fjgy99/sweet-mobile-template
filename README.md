@@ -182,6 +182,17 @@ module.exports = {
 ```
 
 
+### 关于离线缓存 manifest
+app.config.js 的 offlineCaching 配置
+```npm
+npm run manifest: 生产H5缓存.appcache文件
+```
+执行npm run prod命令时会自动执行 npm run manifest命令，读取app.config.js的配置判断是否生成.appcache文件
+
+所有文件名都是根据chunckhash值生成
+
+<strong>注:进入后会自动更新文件，全部更新后刷新才会显示新的版本</strong>
+
 ### constants.js
 
 ```js
@@ -279,6 +290,7 @@ github提交前验证eslint规则，通过才能提交。所以工程最好在gi
 * npm run dll: 打包第三方库，主要优化开发和生产代码的打包速度
 * npm run build: 打包代码命令
 * npm run prod: 打包生产环境代码命令 
+* npm run manifest: 生产H5缓存sweet.mobile.manifest文件
 * npm run git-install: 安装git钩子，验证eslint规则、msg格式(本地必须执行一次)
 * npm run fix-eslint: 修复大部分Eslint规则
 
