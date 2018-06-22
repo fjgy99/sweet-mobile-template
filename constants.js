@@ -4,10 +4,11 @@
  */
 module.exports = {
     /**
-     * 设置多个代理接口前缀
+     * 设置多个代理接口前缀,只能设置ip/域名+端口号,其他路径无用，必须写在ajax处
      * 设置的 key匹配加载 相应接口前面，匹配到后会自动replace掉key
      * 例: '/api':'http://restapi.com' 调用 '/api/comm/getUser'
      * 最后匹配生成 'http://restapi.com/comm/getUser'
+     * 如果本身接口含'/api' 则应该这样写 '/api/api/*'
      * 所有ajax接口配置的proxy前缀只在开发环境起作用，生产环境会自动忽略。接口请求必须设置前缀匹配
      * 接口代理key必须以 '/api' 开头！！！
      * 如果是非接口请求设置真实路径作为key(一般很少)
