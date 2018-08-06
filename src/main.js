@@ -6,7 +6,7 @@ import vueLogger from '@sweetui/sweet-mobile-sdk/config/logger/vue-logger'
 
 import Framework7 from 'framework7/dist/framework7.esm.bundle'
 import Framework7Vue from 'framework7-vue/dist/framework7-vue.esm.bundle'
-import {sweetI18n, sweetStore, sweetTheme, SWTOOL} from '@sweetui/sweet-mobile'
+import {sweetCountly, sweetI18n, sweetStore, sweetTheme, SWTOOL} from '@sweetui/sweet-mobile'
 import 'framework7/dist/css/framework7.min.css'
 
 import sweetMobileLib from '@sweetui/sweet-mobile-lib'
@@ -29,6 +29,15 @@ Vue.use(sweetTheme)
 
 // ajax启动
 request(Vue)
+
+// 初始化 countly 数据采集分析
+sweetCountly(Vue, {
+    debug: true,
+    country_code: 1
+})
+// 然后可以执行一些官方提供的辅助方法
+window.Countly.track_sessions() // 跟踪会话
+window.Countly.track_pageview() // 跟踪页面浏览数（page views）
 
 // 国际化
 sweetI18n(() => {

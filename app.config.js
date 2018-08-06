@@ -42,5 +42,12 @@ module.exports = {
         key: 'SWEET-THEME-COLOR', // localStorage存储的key字段, key根据项目变化,不能为空
         name: '', // 项目初始化设置的皮肤的name 为空默认肤色 正常来说不设置
         f7name: '', // 项目初始化设置的framework7皮肤name 为空默认肤色 正常来说不设置
+    },
+    // Countly数据采集配置的app_key，url，俩者都不为空时开启Countly数据采集功能
+    countly: {
+        // countly应用对应的app_key值
+        app_key: 'f176e48b87f47fca28d6fdf75fc41927b8342896',
+        // Countly 服务器 url
+        url: 'http://10.200.188.83:8181/',
     }
 }
