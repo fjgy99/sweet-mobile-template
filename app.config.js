@@ -28,6 +28,10 @@ module.exports = {
         resolveAlias: {},
         // 扩展rules
         rules: [],
+        // 外部扩展
+        externals: {
+            'AMap': 'AMap'
+        },
     },
     // 设置开发环境接口对应代理前缀
     proxy: constants.proxy,
