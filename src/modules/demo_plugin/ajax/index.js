@@ -11,6 +11,10 @@ const xhr = function(Vue) {
             headers: {},
             // 设置全局接口配置前缀
         },
+        // 配置统一处理 400 401 403 404 409 500 503错误
+        catchStatus: (code, text) => {
+            // alert('状态码:' + code + '，信息:' + text)
+        },
         /*eslint-disable*/
         intercept: {
             // 配置全局SWXHR拦截器 -- > 请求前

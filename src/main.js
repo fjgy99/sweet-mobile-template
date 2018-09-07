@@ -32,7 +32,6 @@ request(Vue)
 
 // 初始化 countly 数据采集分析
 sweetCountly(Vue, {
-    debug: true,
     country_code: 1
 })
 // 然后可以执行一些官方提供的辅助方法

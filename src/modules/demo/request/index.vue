@@ -102,9 +102,11 @@
                     if (valid) {
                         this.SWXHR.POST('/api/adpwreset/sendMessageToMobile', qs.stringify(this.formData))
                             .then(res => {
-                                this.log(res)
-                                this.data = res
-                                app.dialog.alert(res.message)
+                                if (res.code === 'success') {
+                                    this.log(res)
+                                    this.data = res
+                                    app.dialog.alert(res.message)
+                                }
                             })
                     } else {
                         app.dialog.alert('error submit!!!')
