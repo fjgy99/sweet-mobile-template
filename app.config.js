@@ -16,22 +16,28 @@ module.exports = {
     offlineCaching: false,
     // 启用cordova 默认 false，对应 @sweetui/sweet-mobile 的 $sweet.exec功能
     enableCordova: false,
-    // webpack的差异化配置
+    // 可以添加第三方包，加快打包速度和加载, webpack.DllPlugin
+    webpackDLL: [],
+    // 自定义webpack配置,sweet-mobile-sdk会自动合并，相同配置sweet-mobile-sdK权重>此配置
     webpack: {
-        // 入口
+        // 默认入口
         entry: {
             app: path.join(__dirname, 'src/main.js'),
         },
-        // 可以添加第三方包，加快打包速度和加载
-        vendors: [],
-        // 自定义Alias设置
-        resolveAlias: {},
-        // 扩展rules
-        rules: [],
-        // 外部扩展
-        externals: {
-            'AMap': 'AMap'
+        resolve: {
+            extensions: ['.jsx'],
+            // 扩展 alias
+            alias: {}
         },
+        module: {
+            // 扩展rules
+            rules: [],
+        },
+        // 插件plugins
+        plugins: [],
+        // 外部扩展
+        externals: {},
+        // ...更多参考webpack官方配置 https://webpack.js.org/concepts/
     },
     // 设置开发环境接口对应代理前缀
     proxy: constants.proxy,
@@ -52,6 +58,6 @@ module.exports = {
         // countly应用对应的app_key值
         app_key: 'f176e48b87f47fca28d6fdf75fc41927b8342896',
         // Countly 服务器 url
-        url: 'http://10.200.188.83:8181/',
+        url: 'http://10.200.111.114:8181',
     }
 }

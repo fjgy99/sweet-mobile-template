@@ -4,20 +4,26 @@ import Vue from 'vue'
 import '@sweetui/sweet-mobile-sdk/config/utils/responsiveDesign'
 import vueLogger from '@sweetui/sweet-mobile-sdk/config/logger/vue-logger'
 
-import Framework7 from 'framework7/dist/framework7.esm.bundle'
-import Framework7Vue from 'framework7-vue/dist/framework7-vue.esm.bundle'
+// Import F7
+import Framework7 from 'framework7/framework7.esm.bundle.js'
+// Import F7 Vue Plugin
+import Framework7Vue from 'framework7-vue/framework7-vue.esm.bundle.js'
+// Import F7 css
+import 'framework7/css/framework7.css'
+
 import {sweetCountly, sweetI18n, sweetStore, sweetTheme, SWTOOL} from '@sweetui/sweet-mobile'
-import 'framework7/dist/css/framework7.min.css'
 
 import sweetMobileLib from '@sweetui/sweet-mobile-lib'
 import '@sweetui/sweet-mobile-lib/css/index.less'
 
-import app from '@/modules/demo/app'
+import app from './app.vue'
 import request from '@/modules/demo_plugin/ajax'
-import Routes from './routes.js'
+
 import '@/modules/demo_theme/index.less'
-// 引入组件
-Vue.use(Framework7Vue, Framework7)
+
+// Init F7 Vue Plugin
+Framework7.use(Framework7Vue)
+
 // 注入axios ajax请求
 Vue.use(SWTOOL)
 // sweetMobileLib组件库
@@ -54,16 +60,8 @@ sweetI18n(() => {
 // 初始化 App
     const sweetApp = new Vue({
         el: '#app',
-        render: c => c('app'),
+        render: h => h(app),
         store: sweetStore,
-        // 初始化 Framework7 时需要的参数配置
-        framework7: {
-            routes: Routes,
-            // App 名称
-            name: 'GeelyApp',
-            // App id
-            id: 'com.geely.geelyapp'
-        },
         // 注册 App 组件
         components: {
             app
