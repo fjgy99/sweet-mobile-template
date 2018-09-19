@@ -17,9 +17,8 @@
     },
     "devDependencies": {
         "@sweetui/sweet-mobile": "2.5.0",
-        "@sweetui/sweet-mobile-sdk": "1.5.0",
-        "@sweetui/sweet-mobile-lib": "1.0.3",
-        "webpack-merge": "^4.1.4"
+        "@sweetui/sweet-mobile-sdk": "1.5.1",
+        "@sweetui/sweet-mobile-lib": "1.0.3"
     },
     "dependencies": {},
     "keywords": [
