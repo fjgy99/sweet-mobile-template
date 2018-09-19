@@ -46,7 +46,7 @@ module.exports = {
     // 根据环境变量(process.env.SWEET_ENV，执行命令时期)的值 获取对应的 definePlugin对象，设置环境变量值
     definePlugin: constants.definePlugin[process.env.SWEET_ENV],
     // 默认语言设置 localStorage存储值 > 这里language配置, 都为空时根据浏览器环境取值
-    language: 'en',
+    language: 'zh',
     // 换肤配置
     themeConfig: {
         key: 'SWEET-THEME-COLOR', // localStorage存储的key字段, key根据项目变化,不能为空
