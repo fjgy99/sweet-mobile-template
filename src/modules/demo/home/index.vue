@@ -20,7 +20,10 @@
         <div class="home">
             <h1>{{$t('message.welcome')}}</h1>
             <div class="home-btn">
-                <f7-button big fill href="/about">{{$t('message.about')}}</f7-button>
+                <f7-button big fill @click="toPage(1)">路由query跳转</f7-button>
+            </div>
+            <div class="home-btn">
+                <f7-button big fill @click="toPage(2)">路由params跳转</f7-button>
             </div>
             <div class="home-btn">
                 <f7-button big fill href="/request">{{$t('message.request')}}</f7-button>
@@ -54,6 +57,20 @@
              */
             setLang() {
                 this.$i18nLanguage(this.$i18n.locale === 'zh' ? 'en' : 'zh')
+            },
+            /**
+             * 跳转
+             * @param {Number} type 1or 2
+             */
+            toPage(type) {
+                if (type === 1) {
+                    this.$f7router.navigate(`/about?id=${type}`)
+                } else {
+                    this.$f7router.navigate({
+                        name: 'about',
+                        params: {id: 1},
+                    })
+                }
             }
         },
         mounted() {

@@ -22,6 +22,11 @@ export default [
     },
     {
         path: '/about/:id',
+        name: 'about',
+        async: About
+    },
+    {
+        path: '/about/:id',
         async: About
     },
     {
