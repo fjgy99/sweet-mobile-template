@@ -1,7 +1,7 @@
 {
     "name": "sweet-mobile-template",
     "author": "SweetUI Group",
-    "version": "2.5.0-beta",
+    "version": "2.6.0-beta",
     "description": "Sweet Mobile Template",
     "private": true,
     "entry": {},
@@ -17,7 +17,7 @@
     },
     "devDependencies": {
         "@sweetui/sweet-mobile": "2.5.0",
-        "@sweetui/sweet-mobile-sdk": "1.6.1",
+        "@sweetui/sweet-mobile-sdk": "1.6.3",
         "@sweetui/sweet-mobile-lib": "1.0.3"
     },
     "dependencies": {},
