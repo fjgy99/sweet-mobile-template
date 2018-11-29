@@ -8,8 +8,8 @@
     "scripts": {
         "start": "rimraf dist && npm run dll && cross-env SWEET_ENV=development node node_modules/@sweetui/sweet-mobile-sdk",
         "dll": "webpack --progress --hide-modules --config node_modules/@sweetui/sweet-mobile-sdk/config/webpack.config.dll.js",
-        "build": "webpack --progress --hide-modules --config node_modules/@sweetui/sweet-mobile-sdk/config/webpack.config.prod.js && npm run manifest",
-        "manifest": "node node_modules/@sweetui/sweet-mobile-sdk/config/manifest.js",
+        "build": "webpack --progress --hide-modules --config node_modules/@sweetui/sweet-mobile-sdk/config/webpack.config.prod.js && npm run build-callback",
+        "build-callback": "node node_modules/@sweetui/sweet-mobile-sdk/config/callback.js",
         "prod": "rimraf dist &&  npm run dll  && cross-env SWEET_ENV=production npm run build",
         "fix-eslint": "eslint src --ext .jsx,.vue --fix",
         "git-install": "node node_modules/@sweetui/sweet-mobile-sdk/gitHooks/install.js",
@@ -17,10 +17,9 @@
     },
     "devDependencies": {
         "@sweetui/sweet-mobile": "2.5.0",
-        "@sweetui/sweet-mobile-sdk": "1.6.3",
-        "@sweetui/sweet-mobile-lib": "1.0.3"
+        "@sweetui/sweet-mobile-lib": "1.0.3",
+        "@sweetui/sweet-mobile-sdk": "1.6.6"
     },
-    "dependencies": {},
     "keywords": [
         "Sweet",
         "Mobile",

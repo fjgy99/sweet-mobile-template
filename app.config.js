@@ -13,9 +13,11 @@ module.exports = {
     // 最优尺寸： 当屏幕宽度大于720的时候，默认显示iphone plus 414尺寸的放缩，主要适配ipad等
     optimalSize: 414,
     // 生产环境代码是否启用H5离线缓存 默认 false
-    offlineCaching: false,
+    offlineCaching: true,
+    // 生产-打包build后的代码 生成 app_version.json和app_version.zip文件，用于app壳子h5缓存机制  默认 false
+    packCompressCode: true,
     // 启用cordova 默认 false，对应 @sweetui/sweet-mobile 的 $sweet.exec功能
-    enableCordova: false,
+    enableCordova: true,
     // 可以添加第三方包，加快打包速度和加载, webpack.DllPlugin
     webpackDLL: [],
     // 自定义webpack配置,sweet-mobile-sdk会自动合并，相同配置sweet-mobile-sdK权重>此配置

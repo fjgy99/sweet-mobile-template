@@ -14,73 +14,23 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
     <meta name="format-detection" content="telephone=no"/>
     <meta name="format-detection" content="address=no"/>
+    <% if(htmlWebpackPlugin.options.cordova){ %>
     <script src="<%= htmlWebpackPlugin.options.cordova %>" type=text/javascript></script>
+    <% } %>
     <title>Sweet Mobile 2.0</title>
     <style type="text/css">
-        .pcd-load {
-            position: absolute;
-            display: -webkit-flex;
-            -webkit-flex-direction: column;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
+        .pcd-load {position:absolute;display:-webkit-flex;-webkit-flex-direction:column;width:100%;height:100%;top:0;left:0;}
+        .pcd-load-body {display:-webkit-flex;-webkit-flex-direction:column;-webkit-flex:1;padding:20px;}
+        .plb-one {height:30%;margin-bottom:3%;background-color:#bbb;opacity:0;}
+        .ain {-webkit-animation:myfirst linear 2s infinite;}
+        .ain1 {-webkit-animation:myfirst 2s linear 0.5s infinite;}
+        .ain2 {-webkit-animation:myfirst 2s linear 1s infinite;}
+        @-webkit-keyframes myfirst {0% {opacity:0;}
+            50% {opacity:1;}
         }
-
-        .pcd-load-body {
-            display: -webkit-flex;
-            -webkit-flex-direction: column;
-            -webkit-flex: 1;
-            padding: 20px;
-        }
-
-        .plb-one {
-            height: 30%;
-            margin-bottom: 3%;
-            background-color: #bbb;
-            opacity: 0;
-        }
-
-        .ain {
-            -webkit-animation: myfirst linear 2s infinite;
-        }
-
-        .ain1 {
-            -webkit-animation: myfirst 2s linear 0.5s infinite;
-        }
-
-        .ain2 {
-            -webkit-animation: myfirst 2s linear 1s infinite;
-        }
-
-        @-webkit-keyframes myfirst {
-            0% {
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-            }
-        }
-
-        .pcd-load-top {
-            height: 40px;
-            background-color: #ccc;
-        }
-
-        .pcd-load-foot {
-            display: -webkit-flex;
-            -webkit-justify-content: space-around;
-            border-top: 1px solid #ccc;
-            height: 66px;
-            padding: 15px 0;
-            box-sizing: border-box;
-        }
-
-        .plf-item {
-            width: 50px;
-            height: 36px;
-            background-color: #ccc;
-        }
+        .pcd-load-top {height:40px;background-color:#ccc;}
+        .pcd-load-foot {display:-webkit-flex;-webkit-justify-content:space-around;border-top:1px solid #ccc;height:66px;padding:15px 0;box-sizing:border-box;}
+        .plf-item {width:50px;height:36px;background-color:#ccc;}
     </style>
 </head>
 <body>
