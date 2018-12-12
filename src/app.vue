@@ -12,6 +12,7 @@
 </template>
 <script>
     import routes from './routes.js'
+    import events from 'framework7-vue/utils/events'
 
     export default {
         name: 'app',
@@ -30,6 +31,19 @@
             if (location.href.indexOf('#!') === -1) {
                 location.href = `${location.href}#!/`
             }
+            events.on('viewRouterDidUpdate', this.viewRouterDidUpdate)
         },
+        methods: {
+            /**
+             * 视图更新
+             * @param {Object} routerData 路由信息
+             */
+            viewRouterDidUpdate(routerData) {
+                const child = routerData.component.$children
+                if (child.length > 0) {
+                    document.title = child[child.length - 1].$f7route.route.title || '首页'
+                }
+            },
+        }
     }
 </script>

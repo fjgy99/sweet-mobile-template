@@ -14,10 +14,12 @@ import PanelRight from './leftRight/panel-right.vue'
 export default [
     {
         path: '/',
+        title: '首页',
         async: Home
     },
     {
         path: '/about',
+        title: '关于我们',
         async: About
     },
     {
