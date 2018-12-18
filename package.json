@@ -16,9 +16,9 @@
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "devDependencies": {
-        "@sweetui/sweet-mobile": "2.5.0",
+        "@sweetui/sweet-mobile": "2.5.2",
         "@sweetui/sweet-mobile-lib": "1.0.3",
-        "@sweetui/sweet-mobile-sdk": "1.6.6"
+        "@sweetui/sweet-mobile-sdk": "1.6.7"
     },
     "keywords": [
         "Sweet",
